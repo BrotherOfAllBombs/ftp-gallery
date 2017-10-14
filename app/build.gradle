@@ -30,6 +30,7 @@ dependencies {
 
     //IMAGE PROCESSING
     compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.steelkiwi:cropiwa:1.0.3'
 
     //NETWORK
     compile 'com.github.linkindrew:easyFTP:1.1'
