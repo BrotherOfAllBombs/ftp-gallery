@@ -29,10 +29,21 @@ dependencies {
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
 
+    //DI
+    compile 'com.google.dagger:dagger:2.12'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.12'
+
     //IMAGE PROCESSING
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.steelkiwi:cropiwa:1.0.3'
 
     //NETWORK
     compile 'com.github.linkindrew:easyFTP:1.1'
+
+    //RX
+    compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    compile 'io.reactivex.rxjava2:rxjava:2.1.5'
+
+    //UNIT TESTING
+    compile 'org.mockito:mockito-core:2.8.47'
 }
