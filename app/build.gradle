@@ -1,8 +1,9 @@
 apply plugin: 'com.android.application'
+apply plugin: 'easymvp'
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "26.0.1"
+    buildToolsVersion "26.0.2"
     defaultConfig {
         applicationId "com.brother.of.all.bombs.ftpimageclient"
         minSdkVersion 19
