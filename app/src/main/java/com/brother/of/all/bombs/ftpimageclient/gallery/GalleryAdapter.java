@@ -1,7 +1,9 @@
 package com.brother.of.all.bombs.ftpimageclient.gallery;
 
+import android.app.Activity;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,13 +20,16 @@ import java.util.List;
 
 public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryViewHolder> {
 
-    public static final int IMAGE_SIZE = 500;
-    private final Context context;
+    public final int IMAGE_SIZE;
+    private final Activity context;
     private final List<String> data;
 
-    public GalleryAdapter(Context context, List<String> data) {
-        this.context = context;
+    public GalleryAdapter(Activity activity, List<String> data) {
+        this.context = activity;
         this.data = data;
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        IMAGE_SIZE = displayMetrics.widthPixels/2;
     }
 
     @Override

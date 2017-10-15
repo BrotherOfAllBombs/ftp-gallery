@@ -39,6 +39,6 @@ public class GalleryActivity extends AppCompatActivity implements GalleryPresent
 
     @Override
     public void setImages(List<String> names) {
-        recyclerViewGallery.setAdapter(new GalleryAdapter(getApplicationContext(), names));
+        recyclerViewGallery.setAdapter(new GalleryAdapter(this, names));
     }
 }
