@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">FTPImageCLient</string>
+    <string name="activity_gallery_buttonSelectFromGallery">Gallery</string>
+    <string name="activity_gallery_buttonOpenCamera">Camera</string>
 </resources>
