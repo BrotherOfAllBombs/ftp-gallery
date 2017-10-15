@@ -18,6 +18,7 @@ import java.util.List;
 
 public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryViewHolder> {
 
+    public static final int IMAGE_SIZE = 500;
     private final Context context;
     private final List<String> data;
 
@@ -37,7 +38,7 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryV
     public void onBindViewHolder(GalleryViewHolder holder, int position) {
         Picasso.with(context)
                 .load(data.get(position))
-                .resize(50, 50)
+                .resize(IMAGE_SIZE, IMAGE_SIZE)
                 .centerCrop()
                 .into(holder.image);
     }
