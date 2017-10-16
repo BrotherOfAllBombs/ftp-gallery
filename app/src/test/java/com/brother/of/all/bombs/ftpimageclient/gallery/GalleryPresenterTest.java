@@ -9,9 +9,8 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import io.reactivex.Scheduler;
 import io.reactivex.Single;
-import io.reactivex.schedulers.Schedulers;
+import io.reactivex.schedulers.TestScheduler;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
@@ -48,10 +47,14 @@ public class GalleryPresenterTest {
         ILoadImagesUseCase loadImagesUseCase = mock(ILoadImagesUseCase.class);
         when(loadImagesUseCase.requestImageNames()).thenReturn(Single.just(names));
 
-        GalleryPresenter presenter = new GalleryPresenter(getSchedulerProvider(), loadImagesUseCase);
+        ISchedulerProvider provider = getSchedulerProvider();
+
+        GalleryPresenter presenter = new GalleryPresenter(provider, loadImagesUseCase);
 
         //PERFORM
         presenter.onViewAttached(view);
+        ((TestScheduler)provider.getBackgroundThread()).triggerActions();
+        ((TestScheduler)provider.getMainThread()).triggerActions();
 
         //CHECK
         verify(view).setImages(names);
