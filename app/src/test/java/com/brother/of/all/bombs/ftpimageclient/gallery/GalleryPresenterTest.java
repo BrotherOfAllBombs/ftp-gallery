@@ -1,5 +1,6 @@
 package com.brother.of.all.bombs.ftpimageclient.gallery;
 
+import com.brother.of.all.bombs.ftpimageclient.TestSchedulerProvider;
 import com.brother.of.all.bombs.ftpimageclient.rx.ISchedulerProvider;
 import com.brother.of.all.bombs.ftpimageclient.usecases.ILoadImagesUseCase;
 
@@ -64,16 +65,6 @@ public class GalleryPresenterTest {
     }
 
     private ISchedulerProvider getSchedulerProvider() {
-        return new ISchedulerProvider() {
-            @Override
-            public Scheduler getMainThread() {
-                return Schedulers.single();
-            }
-
-            @Override
-            public Scheduler getBackgroundThread() {
-                return Schedulers.single();
-            }
-        };
+        return new TestSchedulerProvider();
     }
 }
