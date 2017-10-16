@@ -30,11 +30,11 @@ public class EditorPresenter extends AbstractPresenter<EditorPresenter.EditorVie
     @Override
     public void onViewAttached(EditorView view) {
         super.onViewAttached(view);
-        getView().setImage(editorModel.getEditorFilePath());
+        getView().setImage(editorModel.getEditorFileUri());
     }
 
     public void submitClicked() {
-        submitUseCase.submitImage(editorModel.getEditorFilePath())
+        submitUseCase.submitImage(editorModel.getEditorFileUri())
                 .subscribeOn(schedulerProvider.getBackgroundThread())
                 .observeOn(schedulerProvider.getMainThread())
                 .subscribe(new SingleObserver() {

@@ -10,7 +10,6 @@ import org.junit.Test;
 import io.reactivex.Single;
 import io.reactivex.schedulers.TestScheduler;
 
-import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -28,7 +27,7 @@ public class EditorPresenterTest {
 
         IEditorFileModel model = new IEditorFileModel() {
             @Override
-            public String getEditorFilePath() {
+            public String getEditorFileUri() {
                 return URI_TO_TEST;
             }
         };
@@ -51,12 +50,12 @@ public class EditorPresenterTest {
 
         IEditorFileModel model = new IEditorFileModel() {
             @Override
-            public String getEditorFilePath() {
+            public String getEditorFileUri() {
                 return URI_TO_TEST;
             }
         };
         ISubmitImageUseCase submitUseCase = mock(ISubmitImageUseCase.class);
-        when(submitUseCase.submitImage(model.getEditorFilePath())).thenReturn(Single.just(true));
+        when(submitUseCase.submitImage(model.getEditorFileUri())).thenReturn(Single.just(true));
 
         EditorPresenter presenter = new EditorPresenter(getSchedulerProvider(), model, submitUseCase);
         presenter.onViewAttached(view);
@@ -65,7 +64,7 @@ public class EditorPresenterTest {
         presenter.submitClicked();
 
         //CHECK
-        verify(submitUseCase).submitImage(model.getEditorFilePath());
+        verify(submitUseCase).submitImage(model.getEditorFileUri());
     }
 
     @Test
@@ -77,12 +76,12 @@ public class EditorPresenterTest {
 
         IEditorFileModel model = new IEditorFileModel() {
             @Override
-            public String getEditorFilePath() {
+            public String getEditorFileUri() {
                 return URI_TO_TEST;
             }
         };
         ISubmitImageUseCase submitUseCase = mock(ISubmitImageUseCase.class);
-        when(submitUseCase.submitImage(model.getEditorFilePath())).thenReturn(Single.just(true));
+        when(submitUseCase.submitImage(model.getEditorFileUri())).thenReturn(Single.just(true));
 
         ISchedulerProvider provider = getSchedulerProvider();
 
@@ -107,12 +106,12 @@ public class EditorPresenterTest {
 
         IEditorFileModel model = new IEditorFileModel() {
             @Override
-            public String getEditorFilePath() {
+            public String getEditorFileUri() {
                 return URI_TO_TEST;
             }
         };
         ISubmitImageUseCase submitUseCase = mock(ISubmitImageUseCase.class);
-        when(submitUseCase.submitImage(model.getEditorFilePath())).thenReturn(Single.error(new Throwable()));
+        when(submitUseCase.submitImage(model.getEditorFileUri())).thenReturn(Single.error(new Throwable()));
 
         ISchedulerProvider provider = getSchedulerProvider();
 

@@ -14,6 +14,7 @@ import android.widget.Button;
 
 import com.brother.of.all.bombs.ftpimageclient.MainApplication;
 import com.brother.of.all.bombs.ftpimageclient.R;
+import com.brother.of.all.bombs.ftpimageclient.editor.EditorActivity;
 
 import java.util.List;
 
@@ -79,6 +80,8 @@ public class GalleryActivity extends AppCompatActivity implements GalleryPresent
         {
             Uri selectedimg = data.getData();
             Log.d(TAG, selectedimg.toString());
+            Intent intent = new Intent(this, EditorActivity.class);
+            startActivity(intent);
         }
     }
 }
